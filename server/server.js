@@ -10,6 +10,7 @@ const User = require('./database/models/User');
 const saltRounds = 12;
 // routes
 const userRoute = require('./routes/users');
+const contactsRoute = require('./routes/contacts');
 
 require('dotenv').config();
 
@@ -89,6 +90,19 @@ passport.deserializeUser(function(user, done) {
   });
 });
 
+app.get('/', (req, res) => {
+  // console.log(req.query.user);
+  // new User()
+  //   .where({ id: req.query.user })
+  //   .fetchAll()
+  //   .then((results) => {
+  //     let resultsObj = results.toJSON();
+
+  //     return res.send(resultsObj);
+  //   });
+  return res.send('sup u fucka');
+});
+
 app.get('/api/profile', (req, res) => {
   console.log(req.query.user);
   new User()
@@ -101,7 +115,20 @@ app.get('/api/profile', (req, res) => {
     });
 });
 
+app.get('/api/users', (req, res) => {
+  console.log(req.query.user);
+  new User()
+    .where({ id: req.query.user })
+    .fetchAll()
+    .then((results) => {
+      let resultsObj = results.toJSON();
+
+      return res.send(resultsObj);
+    });
+});
+
 app.use('/api/users', userRoute);
+app.use('/api/contacts', contactsRoute);
 
 const server = app.listen(PORT, () => {
   console.log(`Express app is running at port ${PORT}`);

@@ -10,7 +10,7 @@ class Contact extends bookshelf.Model {
     return true;
   }
 
-  created_by() {
+  users() {
     return this.belongsTo('User', 'created_by');
   }
 }
