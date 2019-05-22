@@ -25,4 +25,8 @@ export class BackendService {
     const newContact = { phone, name, email, address, github, created_by };
     return this.http.post('/api/contacts', newContact).toPromise();
   }
+
+  searchContacts(input: string): Promise<object> {
+    return this.http.get(`/api/contacts/search/${input}`).toPromise();
+  }
 }

@@ -2,7 +2,19 @@
   <div id="searchBarBox">
     <form>
       <label for="search">Search for a contact:</label>
-      <input type="text" name="search" />
+      <input type="text" name="search" (keyup)="sendSearch()" [(ngModel)]="inputObject.input" />
     </form>
+  </div>
+
+  <div id="contactContainer" *ngIf="inputObject.input !== ''">
+    <div id="contactBox" *ngFor="let contact of contacts">
+      <div class="contactCard">
+        <h3 class="contactName">{{ contact.name }}</h3>
+        <p>Phone: {{ contact.phone }}</p>
+        <p>Email:{{ contact.email }}</p>
+        <p>Address: {{ contact.address }}</p>
+        <button (click)="deleteContact(contact.id)">Delete</button>
+      </div>
+    </div>
   </div>
 </div>

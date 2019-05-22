@@ -23,8 +23,11 @@ router.get('/', (req, res) => {
 // SEARCH
 
 router.get('/search/:term', (req, res) => {
-  let user_id = req.query.user;
+  // let user_id = req.query.user;
+  let user_id = 1;
   let searchTerm = req.params.term;
+
+  console.log('#%@#@% searching');
 
   Contact.query(function(qb) {
     qb.where({ created_by: user_id }).andWhere(function() {
