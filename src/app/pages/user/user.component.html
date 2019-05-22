@@ -1,0 +1,13 @@
+<div class="page">
+  <div>
+    <h2>Your Contacts</h2>
+  </div>
+  <div id="contactBox" *ngFor="let contact of contacts">
+    <div class="contactCard">
+      <h3 class="contactName">{{ contact.name }}</h3>
+      <p>Phone: {{ contact.phone }}</p>
+      <p>Email:{{ contact.email }}</p>
+      <p>Address: {{ contact.address }}</p>
+    </div>
+  </div>
+</div>
