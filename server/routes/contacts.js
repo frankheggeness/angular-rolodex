@@ -78,7 +78,9 @@ router.delete('/:id', (req, res) => {
   })
     .destroy()
     .then(() => {
-      return res.send('card deleted');
+      return res.json({
+        message: 'card deleted',
+      });
     });
 });
 

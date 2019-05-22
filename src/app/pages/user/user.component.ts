@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from 'src/app/services/backend.service';
+import { Router } from '@angular/router';
 
 interface UsersResponse {
   id: number;
@@ -27,10 +28,22 @@ export class UserComponent implements OnInit {
     password: string;
   }[] = [];
 
+  message = '';
+
   ngOnInit() {
     this.backend.getUserContacts().then((data: UsersResponse[]) => {
       console.log(data);
       this.contacts = data;
+    });
+  }
+
+  deleteContact(id: number) {
+    this.backend.deleteContact(id).then(() => {
+      this.message = 'Contact Deleted!';
+      this.backend.getUserContacts().then((data: UsersResponse[]) => {
+        console.log(data);
+        this.contacts = data;
+      });
     });
   }
 }
