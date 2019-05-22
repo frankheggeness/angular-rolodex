@@ -6,11 +6,14 @@
   <div id="contactContainer">
     <div id="contactBox" *ngFor="let contact of contacts">
       <div class="contactCard">
-        <h3 class="contactName">{{ contact.name }}</h3>
+        <div class="nameBox">
+          <h3 class="contactName">{{ contact.name }}</h3>
+        </div>
+
         <p>Phone: {{ contact.phone }}</p>
         <p>Email:{{ contact.email }}</p>
         <p>Address: {{ contact.address }}</p>
-        <button (click)="deleteContact(contact.id)">Delete</button>
+        <button class="deleteButton" (click)="deleteContact(contact.id)">Delete</button>
       </div>
     </div>
   </div>

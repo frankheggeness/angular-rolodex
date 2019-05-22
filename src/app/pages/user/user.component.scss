@@ -1,7 +1,7 @@
 #contactContainer {
   width: 100%;
   #contactBox {
-    width: 30%;
+    width: 33%;
     padding: 1em;
     display: inline-flex;
 
@@ -14,10 +14,30 @@
       align-items: center;
       width: 100%;
       padding: 1em;
-      .contactName {
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
+      .nameBox {
+        align-content: center;
+        text-align: center;
+        border-bottom: 1px solid black;
+        .contactName {
+          margin-left: auto;
+          margin-right: auto;
+          width: 100%;
+        }
+      }
+      .deleteButton {
+        border: 1px solid white;
+        padding: 0.5em;
+        // border: none;
+        background: none;
+        color: red;
+        margin: 0em 0.25em 0em 0.25em;
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+      }
+      .deleteButton:hover {
+        color: red;
+        cursor: pointer;
+        border-color: red;
       }
     }
   }

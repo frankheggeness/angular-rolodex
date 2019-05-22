@@ -19,21 +19,26 @@
 //   display: flex;
 //   justify-content: space-between;
 //   align-content: center;
-//   #titleBox {
-//     font-family: 'Nanum Myeongjo', serif;
-//     font-weight: 900;
-//     font-size: 1.5em;
-//     // color: #20295b;
-//     color: white;
-//   }
+#titleBox {
+  font-family: 'Krona One', sans-serif;
+  font-weight: 900;
+  font-size: 1.5em;
+  // color: #20295b;
+  color: white;
+  // padding: 1em;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
 // }
 
-// #linksBox {
-//   width: 30%;
-//   display: flex;
-//   justify-content: space-between;
-//   align-content: center;
-// }
+#linksBox {
+  width: 40%;
+  display: flex;
+  // justify-content: space-between;
+  align-content: center;
+  // justify-content: space-between;
+  justify-content: flex-end;
+  // font-size: em;
+}
 
 /* Navbar container */
 .navbar {
@@ -41,17 +46,22 @@
   justify-content: space-between;
   overflow: hidden;
   background-color: #333;
-  font-family: Arial;
+  // font-family: Arial;
+  // font-family: 'Shanti', sans-serif;
 }
 
 /* Links inside the navbar */
 .navbar a {
   float: left;
-  font-size: 16px;
+  // font-size: 16px;
+  font-size: 1.25em;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  height: 100%;
+
+  // width: ;
 }
 
 /* The dropdown container */
@@ -62,7 +72,8 @@
 
 /* Dropdown button */
 .dropdown .dropbtn {
-  font-size: 16px;
+  // font-size: 16px;
+  font-size: 1.25em;
   border: none;
   outline: none;
   color: white;
@@ -70,6 +81,9 @@
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
+  font-family: 'Shanti', sans-serif;
+  font-size: 1 em;
+  align-content: center;
 }
 
 /* Add a red background color to navbar links on hover */

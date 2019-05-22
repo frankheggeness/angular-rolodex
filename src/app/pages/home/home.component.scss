@@ -6,13 +6,14 @@
     display: flex;
     justify-content: space-around;
     align-content: center;
+    margin: 1em 0em 1em 0em;
     input,
     label {
       display: block;
     }
     form {
       width: 60%;
-      color: #20295b;
+      color: black;
     }
     input[type='text'] {
       width: 100%;
@@ -24,6 +25,8 @@
       background-position: 10px 10px;
       background-repeat: no-repeat;
       padding-left: 40px;
+      border: 2px solid black;
+      border-radius: 3px;
     }
   }
 }
