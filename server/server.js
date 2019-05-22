@@ -7,6 +7,7 @@ const LocalStrategy = require('passport-local');
 const cookieParser = require('cookie-parser');
 const redis = require('connect-redis')(session);
 const User = require('./database/models/User');
+const Contact = require('./database/models/Contact');
 const saltRounds = 12;
 // routes
 const userRoute = require('./routes/users');
@@ -112,6 +113,23 @@ app.get('/api/profile', (req, res) => {
       let resultsObj = results.toJSON();
 
       return res.send(resultsObj);
+    });
+});
+app.get('/api/search/:term', (req, res) => {
+  // let user_id = req.query.user;
+  let user_id = 1;
+  let searchTerm = req.params.term;
+
+  console.log('#%@#@% searching');
+
+  Contact.query(function(qb) {
+    qb.where({ created_by: user_id }).andWhere(function() {
+      this.whereRaw('LOWER(name) LIKE ?', '%' + searchTerm.toLowerCase() + '%');
+    });
+  })
+    .fetchAll()
+    .then((contacts) => {
+      return res.json({ contacts });
     });
 });
 

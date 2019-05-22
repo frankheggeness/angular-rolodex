@@ -22,24 +22,6 @@ router.get('/', (req, res) => {
 
 // SEARCH
 
-router.get('/search/:term', (req, res) => {
-  // let user_id = req.query.user;
-  let user_id = 1;
-  let searchTerm = req.params.term;
-
-  console.log('#%@#@% searching');
-
-  Contact.query(function(qb) {
-    qb.where({ created_by: user_id }).andWhere(function() {
-      this.whereRaw('LOWER(name) LIKE ?', '%' + searchTerm.toLowerCase() + '%');
-    });
-  })
-    .fetchAll()
-    .then((contacts) => {
-      return res.json({ contacts });
-    });
-});
-
 // POST NEW CONTACT
 
 router.post('/', (req, res) => {
@@ -60,17 +42,17 @@ router.post('/', (req, res) => {
 
 // GET CONTACT WITH ID
 
-// router.get('/:id', (req, res) => {
-//   console.log(req.params.id);
-//   new Contact()
-//     .where({ id: req.params.id })
-//     .fetch()
-//     .then((results) => {
-//       let resultsObj = results.toJSON();
+router.get('/:id', (req, res) => {
+  console.log(req.params.id);
+  new Contact()
+    .where({ id: req.params.id })
+    .fetch()
+    .then((results) => {
+      let resultsObj = results.toJSON();
 
-//       return res.send(resultsObj);
-//     });
-// });
+      return res.send(resultsObj);
+    });
+});
 
 // DELETE
 

@@ -1,44 +1,46 @@
 <div class="page">
   <div id="newContactBox">
-    <div>
-      <h3>Add New Contact</h3>
-      <h4>{{ message }}</h4>
+    <div id="newContactCard">
+      <div id="newContactTitle">
+        <h3>Add New Contact</h3>
+        <h4>{{ message }}</h4>
+      </div>
+      <form>
+        <label for="name">Name:</label>
+        <div>
+          <input type="text" name="name" [(ngModel)]="newContact.name" />
+        </div>
+
+        <div>
+          <label for="Phone">Phone:</label>
+        </div>
+        <div>
+          <input type="number" name="phone" min="0" [(ngModel)]="newContact.phone" />
+        </div>
+
+        <div>
+          <label for="address">Address:</label>
+        </div>
+        <div>
+          <input type="text" name="address" [(ngModel)]="newContact.address" />
+        </div>
+
+        <div>
+          <label for="email">Email:</label>
+        </div>
+        <div>
+          <input type="text" name="email" [(ngModel)]="newContact.email" />
+        </div>
+
+        <div>
+          <label for="github">Github:</label>
+        </div>
+        <div>
+          <input type="text" name="github" [(ngModel)]="newContact.github" />
+        </div>
+
+        <button (click)="submitForm()">Submit</button>
+      </form>
     </div>
-    <form>
-      <label for="name">Name:</label>
-      <div>
-        <input type="text" name="name" [(ngModel)]="newContact.name" />
-      </div>
-
-      <div>
-        <label for="Phone">Phone:</label>
-      </div>
-      <div>
-        <input type="number" name="phone" min="0" [(ngModel)]="newContact.phone" />
-      </div>
-
-      <div>
-        <label for="address">Address:</label>
-      </div>
-      <div>
-        <input type="text" name="address" [(ngModel)]="newContact.address" />
-      </div>
-
-      <div>
-        <label for="email">Email:</label>
-      </div>
-      <div>
-        <input type="text" name="email" [(ngModel)]="newContact.email" />
-      </div>
-
-      <div>
-        <label for="github">Github:</label>
-      </div>
-      <div>
-        <input type="text" name="github" [(ngModel)]="newContact.github" />
-      </div>
-
-      <button (click)="submitForm()">Submit</button>
-    </form>
   </div>
 </div>
