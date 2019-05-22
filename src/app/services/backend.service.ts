@@ -14,6 +14,10 @@ export class BackendService {
     return this.http.delete(`/api/contacts/${id}`).toPromise();
   }
 
+  getSingleContact(): Promise<object> {
+    return this.http.get('/api/contacts?user=1').toPromise();
+  }
+
   createContact(
     phone: number,
     name: string,
