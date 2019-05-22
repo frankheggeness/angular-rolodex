@@ -18,14 +18,16 @@ interface UsersResponse {
 export class HomeComponent implements OnInit {
   constructor(private backend: BackendService) {}
 
-  contacts: {
-    id: number;
-    username: string;
-    name: string;
-    email: string;
-    address: string;
-    password: string;
-  }[] = [];
+  // contacts: {
+  //   id: number;
+  //   username: string;
+  //   name: string;
+  //   email: string;
+  //   address: string;
+  //   password: string;
+  // }[] = [];
+
+  contacts: any;
 
   inputObject: {
     input: string;
@@ -36,13 +38,23 @@ export class HomeComponent implements OnInit {
   ngOnInit() {}
 
   sendSearch() {
-    console.log(this.inputObject);
-    this.backend.searchContacts(this.inputObject.input).then((data: object) => {
-      console.log({
-        testkey: 'testval',
+    if (this.inputObject.input === '') {
+      this.contacts = null;
+      console.log('empty');
+      return;
+    } else {
+      console.log(this.inputObject);
+      this.backend.searchContacts(this.inputObject.input).then((data: any) => {
+        // console.log({
+        //   testkey: 'testval',
+        // });
+        console.log(data);
+        console.log('banana');
+        if (data.contacts) {
+          this.contacts = data.contacts;
+        }
+        console.log('#$@#$@$CONTACTS', this.contacts);
       });
-      this.contacts = data.contacts;
-      console.log('#$@#$@$CONTACTS', this.contacts);
-    });
+    }
   }
 }

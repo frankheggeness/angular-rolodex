@@ -60,17 +60,17 @@ router.post('/', (req, res) => {
 
 // GET CONTACT WITH ID
 
-router.get('/:id', (req, res) => {
-  console.log(req.params.id);
-  new Contact()
-    .where({ id: req.params.id })
-    .fetch()
-    .then((results) => {
-      let resultsObj = results.toJSON();
+// router.get('/:id', (req, res) => {
+//   console.log(req.params.id);
+//   new Contact()
+//     .where({ id: req.params.id })
+//     .fetch()
+//     .then((results) => {
+//       let resultsObj = results.toJSON();
 
-      return res.send(resultsObj);
-    });
-});
+//       return res.send(resultsObj);
+//     });
+// });
 
 // DELETE
 

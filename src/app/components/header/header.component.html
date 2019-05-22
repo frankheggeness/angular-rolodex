@@ -1,4 +1,4 @@
-<ul id="headerBox">
+<!-- <ul id="headerBox">
   <div id="titleBox">R O L O D E X</div>
   <div id="linksBox">
     <li>
@@ -13,4 +13,23 @@
       <a routerLink="user/post">Add Contact</a>
     </li>
   </div>
-</ul>
+</ul> -->
+
+<div class="navbar">
+  <div id="titleBox">R O L O D E X</div>
+  <div id="linkBox">
+    <a routerLink="/">Home</a>
+    <a routerLink="user">Your Contacts</a>
+    <div class="dropdown">
+      <button class="dropbtn">
+        Manage Contacts
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a routerLink="user/post">Add Contact</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </div>
+  </div>
+</div>

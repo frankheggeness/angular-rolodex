@@ -2,7 +2,13 @@
   <div id="searchBarBox">
     <form>
       <label for="search">Search for a contact:</label>
-      <input type="text" name="search" (keyup)="sendSearch()" [(ngModel)]="inputObject.input" />
+      <input
+        type="text"
+        name="search"
+        (keyup)="sendSearch()"
+        [(ngModel)]="inputObject.input"
+        ng-model-options="{ debounce: 500 }"
+      />
     </form>
   </div>
 
