@@ -11,6 +11,7 @@ import { UserComponent } from './pages/user/user.component';
 import { NewCardComponent } from './pages/newCard/newCard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { RegisterComponent } from './pages/register/register.component';
     RegisterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BackendService } from 'src/app/services/backend.service';
 import { Router } from '@angular/router';
 
+import { SessionService } from 'src/app/services/session.service';
+
 interface UsersResponse {
   id: number;
   username: string;
@@ -17,7 +19,14 @@ interface UsersResponse {
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
-  constructor(private backend: BackendService) {}
+  user: {
+    loggedIn: boolean;
+    username: string;
+    id: number;
+  };
+  constructor(private backend: BackendService, private session: SessionService) {
+    this.user = this.session.getSession();
+  }
 
   contacts: {
     id: number;
@@ -31,7 +40,7 @@ export class UserComponent implements OnInit {
   message = '';
 
   ngOnInit() {
-    this.backend.getUserContacts().then((data: UsersResponse[]) => {
+    this.backend.getUserContacts(this.user.id).then((data: UsersResponse[]) => {
       console.log(data);
       this.contacts = data;
     });

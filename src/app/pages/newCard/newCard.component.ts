@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../../services/backend.service';
+import { SessionService } from '../../services/session.service';
 interface UsersResponse {
   id: number;
   username: string;
@@ -15,7 +16,14 @@ interface UsersResponse {
   styleUrls: ['./newCard.component.scss'],
 })
 export class NewCardComponent implements OnInit {
-  constructor(private backend: BackendService) {}
+  user: {
+    loggedIn: boolean;
+    username: string;
+    id: number;
+  };
+  constructor(private backend: BackendService, private session: SessionService) {
+    this.user = this.session.getSession();
+  }
 
   newContact: {
     phone: number;
@@ -23,14 +31,14 @@ export class NewCardComponent implements OnInit {
     email: string;
     address: string;
     github: string;
-    created_by: number;
+    // created_by: any;
   } = {
     phone: 1234567,
     name: '',
     email: '',
     address: '',
     github: '',
-    created_by: 1,
+    // created_by: '',
   };
 
   message = '';
@@ -40,8 +48,9 @@ export class NewCardComponent implements OnInit {
   // this.Router.navigate
 
   submitForm() {
-    const { phone, name, email, address, github, created_by } = this.newContact;
-    this.backend.createContact(phone, name, email, address, github, created_by).then((data: UsersResponse[]) => {
+    console.log(this.user);
+    const { phone, name, email, address, github } = this.newContact;
+    this.backend.createContact(phone, name, email, address, github, this.user.id).then((data: UsersResponse[]) => {
       this.message = 'Contact Created!';
     });
   }

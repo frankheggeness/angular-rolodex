@@ -7,6 +7,7 @@ export class SessionService {
   user = {
     loggedIn: false,
     username: '',
+    id: null,
   };
 
   constructor() {
@@ -27,10 +28,11 @@ export class SessionService {
     return this.user;
   }
 
-  setSession(username) {
+  setSession(username, id) {
     // save to memory
     this.user.username = username;
     this.user.loggedIn = true;
+    this.user.id = id;
 
     // save to local storage
     const userString = JSON.stringify(this.user);

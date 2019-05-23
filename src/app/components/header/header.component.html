@@ -27,11 +27,12 @@
       </button>
       <div class="dropdown-content">
         <a routerLink="user/post"><i class="fas fa-plus"></i> Add Contact</a>
-        <a href="#">Link 2</a>
+        <a routerLink="register">Link 2</a>
         <!-- <a routerLink="logout">Logout <button (click)="logout()"></button></a> -->
-        <button (click)="logout()">Logout</button>
+        <button (click)="logout()"><i class="fas fa-door-open"></i> Logout</button>
       </div>
     </div>
     <a routerLink="login" *ngIf="!user.loggedIn">Login</a>
+    <a routerLink="register" *ngIf="!user.loggedIn">Register</a>
   </div>
 </div>

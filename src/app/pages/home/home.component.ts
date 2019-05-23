@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../../services/backend.service';
-
+import { SessionService } from '../../services/session.service';
 interface UsersResponse {
   id: number;
   username: string;
@@ -16,7 +16,14 @@ interface UsersResponse {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private backend: BackendService) {}
+  user: {
+    loggedIn: boolean;
+    username: string;
+    id: number;
+  };
+  constructor(private backend: BackendService, private session: SessionService) {
+    this.user = this.session.getSession();
+  }
 
   // contacts: {
   //   id: number;

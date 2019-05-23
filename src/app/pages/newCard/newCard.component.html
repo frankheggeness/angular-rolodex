@@ -39,6 +39,13 @@
           <input type="text" name="github" [(ngModel)]="newContact.github" />
         </div>
 
+        <div>
+          <label for="created_by">Created by:</label>
+        </div>
+        <div>
+          <input type="text" name="created_by" value="1" [(ngModel)]="newContact.created_by" readonly />
+        </div>
+
         <button (click)="submitForm()">Submit</button>
       </form>
     </div>
