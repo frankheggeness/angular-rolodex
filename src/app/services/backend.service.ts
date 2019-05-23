@@ -33,4 +33,15 @@ export class BackendService {
   searchContacts(input: string): Promise<object> {
     return this.http.get(`/api/search/${input}`).toPromise();
   }
+
+  register(data) {
+    return this.http.post('/api/register', data).toPromise();
+  }
+  login(data) {
+    console.log('BACKEDN##$#$#$#', data);
+    return this.http.post('/api/login', data).toPromise();
+  }
+  logout() {
+    return this.http.get('/api/logout').toPromise();
+  }
 }

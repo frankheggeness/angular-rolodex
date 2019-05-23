@@ -38,28 +38,28 @@ app.use(passport.session());
 
 passport.use(
   new LocalStrategy(
-    {
-      usernameField: 'email',
-      passwordField: 'password',
-    },
-    function(email, password, done) {
-      return new User({ email: email })
+    // {
+    //   usernameField: 'username',
+    //   passwordField: 'password',
+    // },
+    function(username, password, done) {
+      return new User({ username: username })
         .fetch()
         .then((user) => {
           console.log(user);
 
           if (user === null) {
-            return done(null, false, { message: 'bad email and password' });
+            return done(null, false, { message: 'bad username and password' });
           } else {
             user = user.toJSON();
             bcrypt.compare(password, user.password).then((res) => {
-              // happy route: email exists, passsword matches
+              // happy route: username exists, passsword matches
               if (res) {
                 return done(null, user);
               }
               // error route
               else {
-                return done(null, false, { message: 'bad email or password' });
+                return done(null, false, { message: 'bad username or password' });
               }
             });
           }
@@ -74,7 +74,7 @@ passport.use(
 
 passport.serializeUser(function(user, done) {
   console.log('serializing');
-  return done(null, { id: user.id, email: user.email });
+  return done(null, { id: user.id, username: user.username });
 });
 
 passport.deserializeUser(function(user, done) {
@@ -85,23 +85,9 @@ passport.deserializeUser(function(user, done) {
     user = user.toJSON();
     done(null, {
       id: user.id,
-      email: user.email,
-      role_id: user.role_id,
+      username: user.username,
     });
   });
-});
-
-app.get('/', (req, res) => {
-  // console.log(req.query.user);
-  // new User()
-  //   .where({ id: req.query.user })
-  //   .fetchAll()
-  //   .then((results) => {
-  //     let resultsObj = results.toJSON();
-
-  //     return res.send(resultsObj);
-  //   });
-  return res.send('sup u fucka');
 });
 
 app.get('/api/profile', (req, res) => {
@@ -143,6 +129,28 @@ app.get('/api/users', (req, res) => {
 
       return res.send(resultsObj);
     });
+});
+
+// app.post('/api/login', (req, res) => {
+//   let body = req.body;
+//   new User()
+//     .where({ id: req.query.user })
+//     .fetchAll()
+//     .then((results) => {
+//       let resultsObj = results.toJSON();
+
+//       return res.send(resultsObj);
+//     });
+
+// });
+
+app.post('/api/login', passport.authenticate('local'), function(req, res) {
+  // If this function gets called, authentication was successful.
+  // `req.user` contains the authenticated user.
+  console.log('@#$@#@#%#%', req);
+  let user = req.user;
+  res.json(user);
+  // res.send(true);
 });
 
 app.use('/api/users', userRoute);
