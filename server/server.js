@@ -153,6 +153,41 @@ app.post('/api/login', passport.authenticate('local'), function(req, res) {
   // res.send(true);
 });
 
+app.get('/api/logout', (req, res) => {
+  req.logout();
+  // res.json('/');
+  return res.json({ status: 'ok' });
+});
+
+app.post('/api/register', (req, res) => {
+  bcrypt.genSalt(saltRounds, (err, salt) => {
+    if (err) {
+      return res.send(500, 'ERROR');
+    }
+    bcrypt.hash(req.body.password, salt, (err, hash) => {
+      if (err) {
+        return res.send(500, 'ERROR');
+      }
+      return new User({
+        username: req.body.username,
+        name: req.body.name,
+        email: req.body.email,
+        address: req.body.address,
+        password: hash,
+      })
+        .save()
+        .then((user) => {
+          console.log(user);
+          return res.json({ status: 'ok' });
+        })
+        .catch((err) => {
+          console.log(err);
+          return res.send('error making account');
+        });
+    });
+  });
+});
+
 app.use('/api/users', userRoute);
 app.use('/api/contacts', contactsRoute);
 

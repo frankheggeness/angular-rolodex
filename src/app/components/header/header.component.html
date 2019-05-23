@@ -20,7 +20,7 @@
   <div id="linksBox">
     <a id="homeLink" routerLink="/">Home <i class="fas fa-home"></i></a>
     <a routerLink="user">Your Contacts <i class="far fa-address-book"></i></a>
-    <div class="dropdown">
+    <div class="dropdown" *ngIf="isLoggedIn()">
       <button class="dropbtn">
         Manage Profile
         <i class="fa fa-caret-down"></i>
@@ -28,8 +28,10 @@
       <div class="dropdown-content">
         <a routerLink="user/post"><i class="fas fa-plus"></i> Add Contact</a>
         <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+        <!-- <a routerLink="logout">Logout <button (click)="logout()"></button></a> -->
+        <button (click)="logout()">Logout</button>
       </div>
     </div>
+    <a routerLink="login" *ngIf="!user.loggedIn">Login</a>
   </div>
 </div>
