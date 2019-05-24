@@ -30,8 +30,8 @@ export class BackendService {
     return this.http.post('/api/contacts', newContact).toPromise();
   }
 
-  searchContacts(input: string): Promise<object> {
-    return this.http.get(`/api/search/${input}`).toPromise();
+  searchContacts(input: string, userId: any): Promise<object> {
+    return this.http.get(`/api/search/${input}/${userId}`).toPromise();
   }
 
   register(data) {

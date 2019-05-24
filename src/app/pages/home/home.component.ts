@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
       return;
     } else {
       console.log(this.inputObject);
-      this.backend.searchContacts(this.inputObject.input).then((data: any) => {
+      this.backend.searchContacts(this.inputObject.input, this.user.id).then((data: any) => {
         // console.log({
         //   testkey: 'testval',
         // });

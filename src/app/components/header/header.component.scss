@@ -42,9 +42,13 @@
 
 /* Navbar container */
 .navbar {
+  top: 0;
+  position: -webkit-sticky;
+  position: sticky;
   display: flex;
   justify-content: space-between;
-  overflow: hidden;
+  // overflow: hidden;
+  overflow: visible;
   background-color: #333;
   // font-family: Arial;
   // font-family: 'Shanti', sans-serif;

@@ -101,9 +101,9 @@ app.get('/api/profile', (req, res) => {
       return res.send(resultsObj);
     });
 });
-app.get('/api/search/:term', (req, res) => {
+app.get('/api/search/:term/:id', (req, res) => {
   // let user_id = req.query.user;
-  let user_id = 1;
+  let user_id = req.params.id;
   let searchTerm = req.params.term;
 
   console.log('#%@#@% searching');

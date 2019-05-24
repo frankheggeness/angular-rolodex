@@ -5,15 +5,42 @@
     padding: 1em;
     display: inline-flex;
 
+    // #arrow {
+    //   position: relative;
+    //   top: 0;
+    //   transition: top ease 0.5s;
+    // }
+    // #arrow:hover {
+    //   top: -10px;
+    // }
+    .contactCard:hover {
+      top: -10px;
+      // box-shadow: 10px 10px 2px 2px #2674ce;
+      border: 1px solid #2674ce;
+      background-color: #d0e6ff;
+    }
+
     .contactCard {
       // display: flex;
-      border-style: solid;
-      border-width: 2px;
-      margin: 1em 1em 1em 1em;
-      align-content: center;
-      align-items: center;
+      // border-style: solid;
+      // border-width: 2px;
+      // margin: 1em 1em 1em 1em;
+      // align-content: center;
+      // align-items: center;
+      // width: 100%;
+      // padding: 1em;
+      // z-index: 0;
+      border: 1px solid black;
+      // position: relative;
+      // transition: top ease 0.5s;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
       width: 100%;
-      padding: 1em;
+      background-color: rgb(253, 252, 252);
+      border-radius: 10px;
+      // box-shadow: 10px 10px 2px 2px rgb(207, 207, 207);
+      margin: auto;
+      padding: 15px;
       .nameBox {
         align-content: center;
         text-align: center;

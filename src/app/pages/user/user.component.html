@@ -12,9 +12,9 @@
           </a>
         </div>
 
-        <p>Phone: {{ contact.phone }}</p>
-        <p>Email: {{ contact.email }}</p>
-        <p>Address: {{ contact.address }}</p>
+        <p><i class="fas fa-phone-square"></i> Phone: {{ contact.phone }}</p>
+        <p><i class="fas fa-envelope-open-text"></i> Email: {{ contact.email }}</p>
+        <p><i class="fas fa-map-marker-alt"></i> Address: {{ contact.address }}</p>
         <button class="deleteButton" (click)="deleteContact(contact.id)">Delete</button>
       </div>
     </div>

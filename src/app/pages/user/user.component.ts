@@ -46,10 +46,10 @@ export class UserComponent implements OnInit {
     });
   }
 
-  deleteContact(id: number) {
-    this.backend.deleteContact(id).then(() => {
+  deleteContact(postId: number) {
+    this.backend.deleteContact(postId).then(() => {
       this.message = 'Contact Deleted!';
-      this.backend.getUserContacts().then((data: UsersResponse[]) => {
+      this.backend.getUserContacts(this.user.id).then((data: UsersResponse[]) => {
         console.log(data);
         this.contacts = data;
       });
