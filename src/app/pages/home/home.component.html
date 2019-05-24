@@ -1,4 +1,4 @@
-<h2 *ngIf="user.loggedIn">Welcome, {{ user.username }} {{ user.id }}</h2>
+<h2 *ngIf="user.loggedIn" id="greeting">Welcome, {{ user.username }} {{ user.id }}</h2>
 
 <div id="homeBox">
   <div id="searchBarBox">
@@ -17,11 +17,16 @@
   <div id="contactContainer" *ngIf="inputObject.input !== ''">
     <div id="contactBox" *ngFor="let contact of contacts">
       <div class="contactCard">
-        <h3 class="contactName">{{ contact.name }}</h3>
-        <p>Phone: {{ contact.phone }}</p>
-        <p>Email:{{ contact.email }}</p>
-        <p>Address: {{ contact.address }}</p>
-        <button (click)="deleteContact(contact.id)">Delete</button>
+        <div class="nameBox">
+          <a href="">
+            <h3 class="contactName">{{ contact.name }}</h3>
+          </a>
+        </div>
+
+        <p><i class="fas fa-phone-square"></i> Phone: {{ contact.phone }}</p>
+        <p><i class="fas fa-envelope-open-text"></i> Email: {{ contact.email }}</p>
+        <p><i class="fas fa-map-marker-alt"></i> Address: {{ contact.address }}</p>
+        <button class="deleteButton" (click)="deleteContact(contact.id)">Delete</button>
       </div>
     </div>
   </div>
