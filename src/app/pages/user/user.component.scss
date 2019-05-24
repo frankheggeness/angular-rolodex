@@ -1,5 +1,6 @@
 #contactContainer {
   width: 100%;
+  margin-bottom: 2.75em;
   #contactBox {
     width: 33%;
     padding: 1em;
@@ -16,7 +17,7 @@
     .contactCard:hover {
       top: -10px;
       // box-shadow: 10px 10px 2px 2px #2674ce;
-      border: 1px solid #2674ce;
+      // border: 1px solid #2674ce;
       background-color: #d0e6ff;
     }
 
@@ -30,13 +31,13 @@
       // width: 100%;
       // padding: 1em;
       // z-index: 0;
-      border: 1px solid black;
+      // border: 1px solid black;
       // position: relative;
       // transition: top ease 0.5s;
       -webkit-transition-duration: 0.4s; /* Safari */
       transition-duration: 0.4s;
       width: 100%;
-      background-color: rgb(253, 252, 252);
+      background-color: rgb(243, 243, 239);
       border-radius: 10px;
       // box-shadow: 10px 10px 2px 2px rgb(207, 207, 207);
       margin: auto;
@@ -44,7 +45,7 @@
       .nameBox {
         align-content: center;
         text-align: center;
-        border-bottom: 1px solid black;
+        border-bottom: 1px dotted #333;
         .contactName {
           margin-left: auto;
           margin-right: auto;

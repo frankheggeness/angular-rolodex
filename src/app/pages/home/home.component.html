@@ -1,4 +1,4 @@
-<h2 *ngIf="user.loggedIn" id="greeting">Welcome, {{ user.username }} {{ user.id }}</h2>
+<h2 *ngIf="user.loggedIn" id="greeting">Welcome, {{ user.username }}</h2>
 
 <div id="homeBox">
   <div id="searchBarBox">
@@ -14,6 +14,13 @@
     </form>
   </div>
 
+  <div id="displayMessage" *ngIf="inputObject.input === ''">
+    <h2 id="message">
+      <i id="upArrow" class="fas fa-arrow-alt-circle-up"></i> <br />
+      <br />
+      Type into the search bar to find contacts!
+    </h2>
+  </div>
   <div id="contactContainer" *ngIf="inputObject.input !== ''">
     <div id="contactBox" *ngFor="let contact of contacts">
       <div class="contactCard">

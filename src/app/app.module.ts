@@ -13,6 +13,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+// import { ChildComponent } from './components/child/child.component';
+// import { ParentComponent } from './components/parent/parent.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { FooterComponent } from './components/footer/footer.component';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
+    ProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [AuthGuard],

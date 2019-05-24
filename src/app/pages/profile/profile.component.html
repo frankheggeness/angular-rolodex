@@ -1,0 +1,36 @@
+<div class="page">
+  <h1>Edit Your Information</h1>
+
+  <div class="form-container">
+    Enter your information below:
+    <form>
+      <div class="inputDiv">
+        <label for="name">Name:</label>
+        <input type="text" name="name" placeholder="name" [(ngModel)]="formData.name" />
+      </div>
+      <div class="inputDiv">
+        <label for="username">Username:</label>
+        <input type="text" name="username" placeholder="username" [(ngModel)]="formData.username" />
+      </div>
+
+      <div class="inputDiv">
+        <label for="email">Email:</label>
+        <input type="text" name="email" placeholder="email" [(ngModel)]="formData.email" />
+      </div>
+
+      <div class="inputDiv">
+        <label for="address">Address:</label>
+        <input type="text" name="address" placeholder="address" [(ngModel)]="formData.address" />
+      </div>
+
+      <div class="inputDiv">
+        <label for="passsword">Password:</label>
+        <input type="password" name="password" placeholder="password" [(ngModel)]="formData.password" />
+      </div>
+
+      <div>
+        <button class="btn" (click)="register()">Submit Changes</button>
+      </div>
+    </form>
+  </div>
+</div>

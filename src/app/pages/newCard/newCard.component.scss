@@ -3,11 +3,14 @@
   margin: 3em 0.5em 1em 0.5em;
   display: flex;
   justify-content: center;
+  // background-color: #ddd;
   #newContactCard {
     width: 80%;
-    border: 1px solid black;
+    // border: 1px solid black;
     padding: 1em;
     // justify-content: center;
+    background-color: #ddd;
+    border-radius: 3px;
     input[type='text'],
     input[type='number'] {
       width: 100%;
@@ -16,19 +19,22 @@
       box-sizing: border-box;
     }
     button {
-      background-color: white;
-      border: 1px solid black;
-      color: black;
+      // color: #1c65b9;
+      background-color: #1c65b9;
+      // border: 1px solid black;
+      color: white;
       padding: 16px 32px;
       text-decoration: none;
       margin: 4px 2px;
+      width: 100%;
+      border-radius: 3px;
       cursor: pointer;
       -webkit-transition: 0.2s ease-in-out;
       transition: 0.2s ease-in-out;
     }
     button:hover {
       background-color: #2674ce;
-      border: 1px solid black;
+      // border: 1px solid black;
       color: white;
     }
   }
