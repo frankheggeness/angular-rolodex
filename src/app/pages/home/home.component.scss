@@ -115,9 +115,11 @@
   width: 100%;
   margin-bottom: 2.75em;
   #contactBox {
+    // color: white;
     width: 33%;
     padding: 1em;
     display: inline-flex;
+    // box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 
     // #arrow {
     //   position: relative;
@@ -136,18 +138,7 @@
     }
 
     .contactCard {
-      // display: flex;
-      // border-style: solid;
-      // border-width: 2px;
-      // margin: 1em 1em 1em 1em;
-      // align-content: center;
-      // align-items: center;
-      // width: 100%;
-      // padding: 1em;
-      // z-index: 0;
-      // border: 1px solid black;
-      // position: relative;
-      // transition: top ease 0.5s;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
       -webkit-transition-duration: 0.4s; /* Safari */
       transition-duration: 0.4s;
       width: 100%;
@@ -186,4 +177,15 @@
       }
     }
   }
+}
+
+.infoBox {
+  padding: 1px 5px 5px 1px;
+  background-color: #95c4fa;
+  height: fit-content;
+  // width: fit-content;
+  min-width: 20%;
+  max-width: 100%;
+  border-radius: 10px;
+  margin: 1em 0em 1em 0em;
 }

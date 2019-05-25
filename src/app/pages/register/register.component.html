@@ -6,30 +6,91 @@
     <form>
       <div class="inputDiv">
         <label for="name">Name:</label>
-        <input type="text" name="name" placeholder="name" [(ngModel)]="formData.name" />
+        <input
+          type="text"
+          name="name"
+          placeholder="name"
+          [(ngModel)]="formData.name"
+          [ngClass]="{ error: nameInvalid && name.dirty }"
+          (keyup)="validateName()"
+          #name="ngModel"
+        />
+        <div class="error-message" *ngIf="nameInvalid && name.dirty">
+          {{ nameErrorMessage }}
+        </div>
       </div>
       <div class="inputDiv">
         <label for="username">Username:</label>
-        <input type="text" name="username" placeholder="username" [(ngModel)]="formData.username" />
+        <input
+          type="text"
+          name="username"
+          placeholder="username"
+          [(ngModel)]="formData.username"
+          [ngClass]="{ error: usernameInvalid && username.dirty }"
+          (keyup)="validateUsername()"
+          #username="ngModel"
+        />
+        <div class="error-message" *ngIf="usernameInvalid && username.dirty">
+          {{ usernameErrorMessage }}
+        </div>
       </div>
 
       <div class="inputDiv">
         <label for="email">Email:</label>
-        <input type="text" name="email" placeholder="email" [(ngModel)]="formData.email" />
+        <input
+          type="text"
+          name="email"
+          placeholder="email"
+          [(ngModel)]="formData.email"
+          [ngClass]="{ error: emailInvalid && email.dirty }"
+          (keyup)="validateEmail()"
+          #email="ngModel"
+        />
+        <div class="error-message" *ngIf="emailInvalid && email.dirty">
+          {{ emailErrorMessage }}
+        </div>
       </div>
 
       <div class="inputDiv">
         <label for="address">Address:</label>
-        <input type="text" name="address" placeholder="address" [(ngModel)]="formData.address" />
+        <input
+          type="text"
+          name="address"
+          placeholder="address"
+          [(ngModel)]="formData.address"
+          [ngClass]="{ error: addressInvalid && address.dirty }"
+          (keyup)="validateAddress()"
+          #address="ngModel"
+        />
+        <div class="error-message" *ngIf="addressInvalid && address.dirty">
+          {{ addressErrorMessage }}
+        </div>
       </div>
 
       <div class="inputDiv">
         <label for="passsword">Password:</label>
-        <input type="password" name="password" placeholder="password" [(ngModel)]="formData.password" />
+        <input
+          type="password"
+          name="password"
+          placeholder="password"
+          [(ngModel)]="formData.password"
+          [ngClass]="{ error: passwordInvalid && password.dirty }"
+          (keyup)="validatePassword()"
+          #password="ngModel"
+        />
+        <div class="error-message" *ngIf="passwordInvalid && password.dirty">
+          {{ passwordErrorMessage }}
+        </div>
       </div>
 
       <div>
-        <button class="btn" (click)="register()">Register</button>
+        <button
+          class="btn"
+          (click)="register()"
+          [disabled]="nameInvalid || emailInvalid || passwordInvalid || usernameInvalid"
+        >
+          Register
+        </button>
       </div>
     </form>
   </div>
