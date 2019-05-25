@@ -9,6 +9,7 @@
 // }
 
 .footer {
+  padding: 0em 0em 0em 0em;
   display: flex;
   position: fixed;
   left: 0;
@@ -27,14 +28,17 @@
 // #333
 #footerBox {
   display: flex;
+  padding: 0;
 }
 
 #footLeft {
-  color: white;
-  font-size: 1.1em;
+  // color: white;
+  color: #338bf0;
+  font-size: 0.8em;
 }
 
 #footRight {
-  color: white;
-  font-size: 1.1em;
+  // color: white;
+  color: #333;
+  font-size: 0.8em;
 }
