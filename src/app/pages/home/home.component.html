@@ -1,4 +1,6 @@
-<h2 *ngIf="user.loggedIn" id="greeting">Welcome, {{ user.username }}</h2>
+<div id="greetingBox">
+  <h2 *ngIf="user.loggedIn" id="greeting">Welcome, {{ user.username }}</h2>
+</div>
 
 <div id="homeBox">
   <div id="searchBarBox">
@@ -16,7 +18,10 @@
 
   <div id="displayMessage" *ngIf="inputObject.input === ''">
     <h2 id="message">
-      <i id="upArrow" class="fas fa-arrow-alt-circle-up"></i> <br />
+      <div class="animate">
+        <i id="upArrow" class="fas fa-arrow-alt-circle-up"></i>
+      </div>
+      <br />
       <br />
       Type into the search bar to find contacts!
     </h2>
