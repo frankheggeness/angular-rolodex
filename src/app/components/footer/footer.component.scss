@@ -1,9 +1,40 @@
+// .footer {
+//   position: fixed;
+//   left: 0;
+//   bottom: 0;
+//   width: 100%;
+//   background-color: #333;
+//   color: white;
+//   text-align: center;
+// }
+
 .footer {
+  display: flex;
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #333;
-  color: white;
+  justify-content: center;
+  //   background-color: #333;
+  //   color: white;
+  align-content: center;
   text-align: center;
+  // background-color: #013a6b;
+  // background-image: -webkit-linear-gradient(30deg, #013a6b 50%, #004e95 50%);
+  background-image: -webkit-linear-gradient(0deg, #333 50%, #2674ce 50%);
+}
+// #2674ce blue
+// #333
+#footerBox {
+  display: flex;
+}
+
+#footLeft {
+  color: white;
+  font-size: 1.1em;
+}
+
+#footRight {
+  color: white;
+  font-size: 1.1em;
 }
