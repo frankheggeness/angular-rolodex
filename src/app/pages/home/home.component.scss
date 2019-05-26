@@ -12,6 +12,37 @@
   }
 }
 
+.bottomAnimateShow {
+  position: relative;
+  animation: animatebottom 0.4s;
+}
+@keyframes animatebottom {
+  from {
+    bottom: -300px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+.bottomAnimateHide {
+  position: relative;
+  animation: animatebottomhide 0.4s;
+  animation-fill-mode: forwards;
+}
+@keyframes animatebottomhide {
+  from {
+    bottom: 0px;
+    opacity: 1;
+  }
+  to {
+    bottom: -300px;
+    opacity: 0;
+  }
+}
+
 .animate {
   -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
   -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
@@ -25,28 +56,10 @@
 }
 @keyframes example {
   0% {
-    // background-color: red;
-    // left: 0px;
     top: 0px;
   }
-  // 25% {
-  //   background-color: yellow;
-  //   // left: 200px;
-  //   top: 0px;
-  // // }
-  // 50% {
-  //   background-color: blue;
-  //   // left: 200px;
-  //   top: 400px;
-  // }
-  // 75% {
-  //   background-color: green;
-  //   // left: 0px;
-  //   top: 200px;
-  // }
+
   100% {
-    // background-color: red;
-    // left: 0px;
     top: 20px;
   }
 }

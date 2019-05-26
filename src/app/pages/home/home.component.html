@@ -12,19 +12,23 @@
         (keyup)="sendSearch()"
         [(ngModel)]="inputObject.input"
         ng-model-options="{ debounce: 500 }"
+        #search="ngModel"
       />
     </form>
   </div>
-
-  <div id="displayMessage" *ngIf="inputObject.input === ''">
-    <h2 id="message">
-      <div class="animate">
-        <i id="upArrow" class="fas fa-arrow-alt-circle-up"></i>
-      </div>
-      <br />
-      <br />
-      Type into the search bar to find contacts!
-    </h2>
+  <!-- *ngIf="inputObject.input === ''" -->
+  <!-- class="bottomAnimateShow"  -->
+  <div [ngClass]="{ bottomAnimateShow: inputObject.input === '' }">
+    <div id="displayMessage" [ngClass]="{ bottomAnimateHide: inputObject.input !== '' }">
+      <h2 id="message">
+        <div class="animate">
+          <i id="upArrow" class="fas fa-arrow-alt-circle-up"></i>
+        </div>
+        <br />
+        <br />
+        Type into the search bar to find contacts!
+      </h2>
+    </div>
   </div>
   <div id="contactContainer" *ngIf="inputObject.input !== ''">
     <div id="contactBox" *ngFor="let contact of contacts">
